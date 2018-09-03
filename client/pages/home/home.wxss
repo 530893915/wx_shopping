@@ -1,1 +1,63 @@
-/* pages/home/home.wxss */
+.hot-card{
+  background-color: white;
+  position: relative;
+  height: 326rpx;
+  margin: 32rpx 52rpx 0;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.hot-card .hot-name{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 44rpx;
+  top: 41rpx;
+  width: 300rpx;  
+}
+
+.hot-card .hot-name-line{
+  width: 24rpx;
+  height: 39rpx;
+}
+
+.hot-card .hot-name-text{
+  margin: 0 20rpx;
+  font-size: 28rpx;
+  color: #34373D;
+  font-weight: bold;
+}
+
+.hot-card .hot-info{
+  position: absolute;
+  width: 259rpx;
+  height: 188rpx;
+  left: 42rpx;
+  bottom: 0;
+}
+
+.hot-card .hot-image{
+  position: absolute;
+  width: 241rpx;
+  height: 241rpx;
+  top: 53rpx;
+  right: 47rpx;
+}
+
+.list-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 90rpx 0 35rpx;
+}
+
+.list-title .list-title-line{
+  width: 21rpx;
+  height: 34rpx;
+}
+
+.list-title .list-title-text{
+  margin: 0 20rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
