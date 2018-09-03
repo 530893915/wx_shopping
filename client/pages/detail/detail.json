@@ -1,15 +1,3 @@
 {
-  "navigationBarTitleText": "商品详情",
-  "tabBar": {
-    "borderStyle": "black",
-    "backgroundColor":"yellow",
-    "list": [
-      {
-        "text": "加入购物车"
-      },
-      {
-        "text": "立即购买"
-      }
-    ]
-  }
+  "navigationBarTitleText": "商品详情"
 }
