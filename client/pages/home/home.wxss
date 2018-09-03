@@ -91,7 +91,6 @@
   font-size: 28rpx;
   color: rgba(29, 29, 38, 0.8);
   line-height: 40rpx;
-  opacity: 0.8;
 }
 
 .product-meta {

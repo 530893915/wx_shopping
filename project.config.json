@@ -12,5 +12,31 @@
 	},
 	"appid": "wx4cd9619ed6aac13c",
 	"projectname": "wx_shopping",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail"
+				}
+			]
+		}
+	}
 }

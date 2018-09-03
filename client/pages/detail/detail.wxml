@@ -1,0 +1,22 @@
+<image src="/images/bg.png" class="bg"></image>
+<!-- 商品卡片 -->
+<view class='detail-card'>
+  <image class='detail-image' src='{{product.image}}'></image>
+  <view class='detail-name'>{{product.name}}</view>
+  <view class='detail-source'>{{product.source}}</view>
+  <view class='detail-meta'>
+    <view class='detail-money'>¥</view>
+    <view>{{product.price}}</view>
+  </view>
+</view>
+<!-- 服务和评价 -->
+<view class='detail-service'>
+  <view class='detail-promise'>
+    <image src='/images/check-yellow.png' class='detail-promise-icon'></image>
+    <view class='detail-promise-text'>7天免费退货</view>
+  </view>
+  <view class='detail-promise'>
+    <image src='/images/check-yellow.png' class='detail-promise-icon'></image>
+    <view class='detail-promise-text'>24小时内发货并配送运费险</view>
+  </view>
+</view>

@@ -1,0 +1,76 @@
+/* pages/detail/detail.wxss */
+.detail-card{
+  background-color: white;
+  position: relative;
+  width: 100%;
+  border-radius: 15rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);  
+  padding-bottom: 40rpx;  
+}
+
+.detail-card .detail-image{
+  width: 362rpx;
+  height: 362rpx;
+  margin: 20rpx 80rpx;
+}
+
+.detail-card .detail-name{
+  margin: 10rpx 40rpx;
+  font-size: 40rpx;
+  color: #34373D;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.detail-card .detail-source{
+  margin: 10rpx 40rpx 10rpx 40rpx;
+  font-size: 28rpx;
+  color: #34373D;
+  opacity: 0.65;
+}
+
+.detail-card .detail-meta{
+  display: flex;
+  position: absolute;
+  right: 40rpx;
+  bottom: 10rpx;
+}
+
+.detail-card .detail-meta .detail-money{
+  margin: 0 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 50%;
+  color: #34373D;
+  font-weight: 900;
+  background: #F7E687;
+}
+
+.detail-service{
+  background-color: white;
+  position: relative;
+  height: 326rpx;
+  margin: 32rpx 32rpx 0;
+  border-radius: 15rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  padding-top: 50rpx;
+}
+
+.detail-promise{
+  display: flex;
+  margin: 0 20rpx 10rpx 20rpx;
+}
+
+.detail-promise-icon{
+  width: 33rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  margin: 0 10rpx;
+}
+
+.detail-promise-text{
+  font-size: 24rpx;
+  color: #34373D;
+}
