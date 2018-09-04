@@ -4,7 +4,6 @@
     "pages/order/order",
     "pages/trolley/trolley",
     "pages/user/user",
-    "pages/detail",
     "pages/detail/detail"
   ],
   "window": {
