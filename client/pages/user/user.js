@@ -11,7 +11,14 @@ Page({
     userInfo: '',
   },
   onLoad(){
-    
+    this.checkSession({
+      success: ({ userInfo }) => {
+        this.setData({
+          userInfo: userInfo
+        })
+      },
+      error: () => { }
+    })
   },
   onTapLogin(){
     qcloud.setLoginUrl(config.service.loginUrl)
@@ -45,6 +52,7 @@ Page({
       title: '此功能暂未开放'
     })
   },
+  // 微信登录代码
   doQcloudLogin({ success, error }) {
     // 调用 qcloud 登陆接口
     qcloud.login({
@@ -64,6 +72,7 @@ Page({
       }
     })
   },
+  // 辅助函数，设置下载的url、请求成功及失败对应的回调函数
   getUserInfo({ success, error }) {
     qcloud.request({
       url: config.service.requestUrl,
@@ -78,6 +87,17 @@ Page({
         } else {
           error && error()
         }
+      },
+      fail: () => {
+        error && error()
+      }
+    })
+  },
+  // 会话检查，不用重新登录
+  checkSession({ success, error }) {
+    wx.checkSession({
+      success: () => {
+        this.getUserInfo({ success, error })
       },
       fail: () => {
         error && error()
