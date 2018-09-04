@@ -1,1 +1,78 @@
-/* pages/order/order.wxss */
+.orderList-top{
+  display: flex;
+  align-items: center;
+}
+
+.orderList-top-icon{
+  width: 21rpx;
+  height: 34rpx;
+  margin: 0 20rpx 0 30rpx;
+}
+
+.orderList-top-text{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.8;
+}
+
+.orderList-wrapper{
+  margin: 30rpx 0;
+}
+
+.orderList-detail{
+  background-color: white;
+  position: relative;
+  height: 200rpx;
+  margin: 5rpx 52rpx 0;
+  border-radius: 15rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.orderList-image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 13rpx;
+}
+
+.order-name{
+  position: absolute;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  left: 220rpx;
+  top: 20rpx;
+  opacity: 0.8;
+}
+
+.order-price{
+  position: absolute;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  left: 220rpx;
+  top: 72rpx;
+  font-weight: bold;
+}
+
+.order-comment{
+  position: absolute;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #F5E069;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #34373D;
+  font-weight: bold;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  top: 40rpx;
+  right: 30rpx;
+}
+
+.order-count{
+  position: absolute;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  font-weight: bold;
+  bottom: 20rpx;
+  right: 20rpx;
+}

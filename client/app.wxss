@@ -55,4 +55,5 @@ page {
   text-align: center;
   color: #34373D;
   font-weight: bold;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
 } 

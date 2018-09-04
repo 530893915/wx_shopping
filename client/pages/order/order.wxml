@@ -10,3 +10,25 @@
   <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view> 
+
+
+
+
+<view wx:else class='orderList'>
+  <view wx:if="{{!orderList}}">暂无订单页面！</view>
+  <view wx:else>
+    <view class='orderList-top'>
+      <image class='orderList-top-icon' src='/images/line-black.png'></image>
+      <view class='orderList-top-text'>已完成</view>
+    </view>
+    <view wx:for="{{orderList}}" wx:key="id" class='orderList-wrapper'>
+      <view wx:for="{{item.list}}" wx:key="index" class='orderList-detail'>
+        <image class='orderList-image' src='{{item.image}}'></image>
+        <view class='order-name'>{{item.name}}</view>
+        <view class='order-price'>¥{{item.price}}</view>
+        <view class='order-comment'>评价</view>
+        <view class='order-count'>x{{item.count}}</view>
+      </view>
+    </view>
+  </view>
+</view>
