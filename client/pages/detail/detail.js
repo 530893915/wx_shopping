@@ -1,15 +1,37 @@
+const qcloud = require("../../vendor/wafer2-client-sdk/index.js")
+const config = require('../../config.js')
 
 Page({
   data: {
-    product: {
-      id: 1,
-      image:'https://product-1256088332.cos.ap-guangzhou.myqcloud.com/product2.jpg',
-      name: '商品',
-      price: 480.5,
-      source: '国内·广东'
-    },
+    product: {}
   },
-  onLoad(){
-  
+  onLoad(options){
+    this.getProduct(options.id)
+  },
+  getProduct(id){
+    wx.showLoading({
+      title: '商品数据加载中...',
+    })
+    qcloud.request({
+      url: config.service.productDetail + id,
+      success: result => {
+        wx.hideLoading()
+        if (!result.data.code) {
+          this.setData({
+            product: result.data.data
+          })
+        } else {
+          setTimeout(()=>{
+            wx.navigateBack()
+          },2000)
+        }
+      },
+      fail: result => {
+        wx.hideLoading()
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
+      }
+    })
   }
 })
