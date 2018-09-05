@@ -14,21 +14,26 @@
 
 
 
-<view wx:else class='orderList'>
-  <view wx:if="{{!orderList}}">暂无订单页面！</view>
-  <view wx:else>
-    <view class='orderList-top'>
-      <image class='orderList-top-icon' src='/images/line-black.png'></image>
-      <view class='orderList-top-text'>已完成</view>
-    </view>
-    <view wx:for="{{orderList}}" wx:key="id" class='orderList-wrapper'>
-      <view wx:for="{{item.list}}" wx:key="index" class='orderList-detail'>
-        <image class='orderList-image' src='{{item.image}}'></image>
-        <view class='order-name'>{{item.name}}</view>
-        <view class='order-price'>¥{{item.price}}</view>
-        <view class='order-comment'>评价</view>
-        <view class='order-count'>x{{item.count}}</view>
+<view wx:elif="{{orderList.length > 0}}">
+  <view class="order-head">
+    <image class="order-head-line" src="/images/line-black.png"></image>
+    <view class="order-head-text">已完成</view>
+  </view>
+  <view wx:for="{{orderList}}" wx:for-index="bindex" wx:for-item="block" wx:key="id" class="order-block">
+    <view wx:for="{{block.list}}" wx:key="id" class="order-card">
+      <image class="order-image" mode="widthFix" src="{{item.image}}"></image>
+      <view class="order-info">
+        <view class="order-name">{{item.name}}</view>
+        <view class="order-price">¥ {{item.price}}</view>
+      </view>
+      <view class="order-opr">
+        <view class="order-btn">评价</view>
+        <view class="order-count">x{{item.count}}</view>
       </view>
     </view>
   </view>
+</view>
+<view class="order-empty" wx:else>
+  <image class="empty-image" src="/images/order.png"></image>
+  <view class="empty-text">暂时还没有订单</view>
 </view>

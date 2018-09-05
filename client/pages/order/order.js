@@ -1,3 +1,6 @@
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
+
 const app = getApp()
 
 Page({
@@ -8,42 +11,43 @@ Page({
   data: {
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
-    orderList: [
-      {
-        id: 0,
-        list: [{
-          count: 1,
-          image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
-          name: '商品1',
-          price: 50.5,
-        }]
-      },
-      {
-        id: 1,
-        list: [{
-          count: 1,
-          image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
-          name: '商品1',
-          price: 50.5,
-        },
-        {
-          count: 1,
-          image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
-          name: '商品2',
-          price: 50.5,
-        }
-        ]
-      },
-      {
-        id: 2,
-        list: [{
-          count: 1,
-          image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
-          name: '商品2',
-          price: 50.5,
-        }]
-      }
-    ], // 订单列表
+    orderList: [], // 订单列表
+    // orderList: [
+    //   {
+    //     id: 0,
+    //     list: [{
+    //       count: 1,
+    //       image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
+    //       name: '商品1',
+    //       price: 50.5,
+    //     }]
+    //   },
+    //   {
+    //     id: 1,
+    //     list: [{
+    //       count: 1,
+    //       image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
+    //       name: '商品1',
+    //       price: 50.5,
+    //     },
+    //     {
+    //       count: 1,
+    //       image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
+    //       name: '商品2',
+    //       price: 50.5,
+    //     }
+    //     ]
+    //   },
+    //   {
+    //     id: 2,
+    //     list: [{
+    //       count: 1,
+    //       image: 'https://product-1254231096.cos.ap-chengdu.myqcloud.com/product1.jpg',
+    //       name: '商品2',
+    //       price: 50.5,
+    //     }]
+    //   }
+    // ], // 订单列表
   },
 
   /**
@@ -66,6 +70,7 @@ Page({
         })
       }
     })
+    this.getOrder()
   },
 
   /**
@@ -88,42 +93,41 @@ Page({
         this.setData({
           userInfo
         })
+        this.getOrder()
       }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  getOrder() {
+    wx.showLoading({
+      title: '刷新订单数据...',
+    })
+    qcloud.request({
+      url: config.service.orderList,
+      login: true,
+      success: result => {
+        wx.hideLoading()
+        let data = result.data
+        console.log(data)
+        if (!data.code) {
+          this.setData({
+            orderList: data.data
+          })
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '刷新订单数据失败',
+          })
+        }
+      },
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          icon: 'none',
+          title: '刷新订单数据失败',
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
