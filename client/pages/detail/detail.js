@@ -9,11 +9,13 @@ Page({
   },
   onLoad(options){
     this.getProduct(options.id)
+    console.log(options.id)
   },
   getProduct(id){
     wx.showLoading({
       title: '商品数据加载中...',
     })
+    console.log(id)
     qcloud.request({
       url: config.service.productDetail + id,
       success: result => {
